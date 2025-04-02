@@ -27,23 +27,22 @@ const Home = () => {
       <Search onSearch={handleSearch} />
 
       {/* Add User Button */}
-      <div className="w-full max-w-5xl flex justify-start mt-4">
+      <div className="w-full flex mt-4">
         <button
           onClick={handleAddUser}
-          className="bg-blue-600 text-white font-medium px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition"
+          className="bg-blue-600 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-blue-700 transition"
         >
           + THÊM
         </button>
       </div>
 
-       {/* Navbar for status filter */}
-       <div className="w-full mt-4 bg-white shadow-sm rounded-md p-2 flex space-x-4">
+      {/* Navbar for status filter */}
+      <div className="w-full mt-4 bg-white shadow-sm rounded-md p-2 flex space-x-4">
         {["All", "In progress", "Waiting", "Reject", "Done"].map((status) => (
           <button
             key={status}
-            className={`px-4 py-2 text-sm font-medium transition ${
-              activeStatus === status ? "border-b-2 border-blue-600 text-blue-600" : "text-gray-700 hover:text-blue-500"
-            }`}
+            className={`px-4 py-2 text-sm font-medium transition ${activeStatus === status ? "border-b-2 border-blue-600 text-blue-600" : "text-gray-700 hover:text-blue-500"
+              }`}
             onClick={() => setActiveStatus(status)}
           >
             {status}
