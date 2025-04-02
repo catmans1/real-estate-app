@@ -32,6 +32,10 @@ jobs:
         run: |
           yarn build
 
+      - name: Set up Git authentication for GitHub Pages deployment
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
       - name: Deploy to GitHub Pages
         run: |
           yarn deploy
