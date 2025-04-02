@@ -11,7 +11,7 @@ const Search = ({ onSearch }: { onSearch: (query: string, type: string) => void 
   };
 
   return (
-    <div className="bg-white w-full shadow-md rounded-lg p-4 flex items-center gap-4">
+    <div className="bg-white w-full shadow-md rounded-md p-4 flex items-center gap-4">
       {/* Search Input */}
       <input
         type="text"

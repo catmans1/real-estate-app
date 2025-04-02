@@ -12,7 +12,7 @@ interface User {
 const UserTable = ({ users }: { users: User[] }) => {
   return (
     <div className="overflow-x-auto w-full">
-      <table className="min-w-full w-full bg-white table-auto border border-gray-300 shadow-md rounded-lg">
+      <table className="min-w-full w-full bg-white table-auto border border-gray-300 shadow-md rounded-md">
         <thead>
           <tr className="bg-gray-200">
             <th className="p-3 text-left">Name</th>
