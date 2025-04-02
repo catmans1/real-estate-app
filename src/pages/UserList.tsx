@@ -1,11 +1,9 @@
 import { UserTable } from "components";
-import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const UserList = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const query = searchParams.get("query");
   const users = [
     { id: "1", name: "John Doe", email: "john@example.com", phone: "123-456-7890", address: "123 Main St", status: "In progress" },
     { id: "2", name: "Jane Smith", email: "jane@example.com", phone: "987-654-3210", address: "456 Oak St", status: "Waiting" },

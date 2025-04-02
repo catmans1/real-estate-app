@@ -33,7 +33,7 @@ jobs:
 
       - name: Build the project
         run: |
-          yarn build
+          CI=false yarn build
 
       - name: Set up Git authentication for GitHub Pages deployment
         run: |
