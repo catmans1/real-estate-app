@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, UserTable } from "../components";
-import { UserStatus } from "../constants";
+import { UserData } from "../constants";
 import { useUserStatus } from "hooks";
 
 const Home = () => {
@@ -9,17 +9,9 @@ const Home = () => {
   const { statuses, visibleStatuses, addVisibleStatus, removeVisibleStatus } = useUserStatus()
 
   const [activeStatus, setActiveStatus] = useState<string>("Tất cả");
-  const [users, setUsers] = useState<any[]>([]);
+  const [users] = useState<any[]>(UserData.get());
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  useEffect(() => {
-    // Load users from localStorage
-    const stored = localStorage.getItem("users");
-    const parsed = stored ? JSON.parse(stored) : [];
-    console.log("vao day 1", parsed)
-    setUsers(parsed)
-  }, []);
-
+  console.log(users)
   const handleSearch = (query: string, type: string) => {
     console.log("Searching for:", query, "Type:", type);
   };
@@ -79,7 +71,8 @@ const Home = () => {
             <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md border border-gray-200 z-10">
               <div className="p-2">
                 {statuses.map((status) => (
-                  <div key={status} className="flex items-center space-x-2">
+                  <div
+                   key={status} className="flex items-center space-x-2">
                     <input
                       type="checkbox"
                       checked={visibleStatuses.includes(status)}

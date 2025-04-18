@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserStatus } from "hooks";
+import { UserData } from "../constants";
 
 const CreateUser = () => {
   const navigate = useNavigate();
@@ -65,14 +66,8 @@ const CreateUser = () => {
       additionalFields,
     };
 
-    // Get current users from localStorage
-    const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
-
-    // Add new user
-    const updatedUsers = [...existingUsers, newUser];
-
     // Save back to localStorage
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    UserData.add(newUser)
 
     alert("Lưu thành công!");
 
@@ -166,11 +161,13 @@ const CreateUser = () => {
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
           >
-            {statuses.map((status) => (
-              <option key={status} value={status}>
-                {status}
-              </option>
-            ))}
+            {statuses.map((status) =>
+              !status.includes("Tất cả") && (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              )
+            )}
           </select>
 
           {/* Add new status */}
@@ -194,7 +191,7 @@ const CreateUser = () => {
           {/* Status list with remove buttons */}
           <div className="mt-3 space-y-1">
             {statuses.map((status) => (
-              <div key={status} className="flex items-center gap-2">
+              !status.includes("Tất cả") && <div key={status} className="flex items-center gap-2">
                 <span className="px-3 py-1 rounded bg-gray-200 text-sm">{status}</span>
                 <button
                   type="button"
