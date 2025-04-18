@@ -15,11 +15,11 @@ const UserTable = ({ users }: { users: User[] }) => {
       <table className="min-w-full w-full bg-white table-auto border border-gray-300 shadow-md rounded-md">
         <thead>
           <tr className="bg-gray-200">
-            <th className="p-3 text-left">Name</th>
+            <th className="p-3 text-left">Tên</th>
             <th className="p-3 text-left">Email</th>
-            <th className="p-3 text-left">Phone</th>
-            <th className="p-3 text-left">Address</th>
-            <th className="p-3 text-left">Status</th>
+            <th className="p-3 text-left">Số điện thoại</th>
+            <th className="p-3 text-left">Địa chỉ</th>
+            <th className="p-3 text-left">Trạng thái</th>
           </tr>
         </thead>
         <tbody>
@@ -45,7 +45,7 @@ const UserTable = ({ users }: { users: User[] }) => {
           ) : (
             <tr>
               <td colSpan={5} className="p-3 text-center text-gray-500">
-                No users found
+                Chưa có khách hàng
               </td>
             </tr>
           )}

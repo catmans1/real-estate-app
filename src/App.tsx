@@ -1,8 +1,12 @@
 import AppRoutes from "./routes";
 
+import { UserStatusProvider } from "context";
+
 function App() {
   return (
-    <AppRoutes />
+    <UserStatusProvider>
+      <AppRoutes />
+    </UserStatusProvider>
   );
 }
 
